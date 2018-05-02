@@ -3,8 +3,6 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 
 export default ({ data }) => {
-  console.log(data)
-
   return (
     <Layout>
       <h1>Gatsby/Guess.js Wikipedia Demo</h1>

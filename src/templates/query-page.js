@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 
 export default ({ data, pageContext }) => {
-  console.log(data, pageContext)
   return (
     <Layout>
       <h1>
@@ -13,7 +12,6 @@ export default ({ data, pageContext }) => {
       </h1>
       <ul>
         {data.allWikipediaArticle.edges.map(({ node }) => {
-          console.log(node)
           return (
             <li>
               <Link to={node.fields.slug}>{node.title}</Link>
