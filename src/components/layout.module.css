@@ -17,3 +17,6 @@
   color: white;
   font-size: 125%;
 }
+.navWrapper a:visited {
+  color: white;
+}
