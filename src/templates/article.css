@@ -1,0 +1,118 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow: hidden;
+}
+
+.hatnote {
+  font-size: 90%;
+  font-style: italic;
+}
+
+.thumb.tright {
+  margin-bottom: 0.7em;
+}
+
+div.thumbinner {
+  border: 1px solid #c8ccd1;
+  padding: 3px;
+  background-color: #f8f9fa;
+  font-size: 94%;
+  text-align: center;
+  overflow: hidden;
+}
+
+table.infobox {
+  border: 1px solid gray;
+  font-size: 90%;
+  position: relative;
+  margin-bottom: 2em;
+  padding: 5px;
+  text-align: left;
+  background-color: #f9f9f9;
+}
+table.infobox th,
+table.infobox td {
+  vertical-align: top;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  padding: 0.2em;
+}
+table.infobox tr:last-child th,
+table.infobox tr:last-child td {
+  border: none;
+}
+
+td img {
+  margin: 0;
+  width: auto;
+}
+
+@media all and (min-width: 768px) {
+  table.infobox {
+    margin: 0.5em 0 1em 35px;
+    max-width: 320px;
+    width: auto !important;
+    float: right;
+    clear: right;
+  }
+  caption {
+    font-weight: bold;
+  }
+  .pre-content {
+    position: relative;
+    padding: 20px 3.35em 0 3.35em;
+  }
+  .pre-content #section_0 {
+    border-bottom: 1px solid #e2e3e4;
+    padding: 12px 220px 7px 0;
+  }
+  #page-actions {
+    border: none;
+    padding: 36px 3.35em 0 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  #page-actions li.icon {
+    margin: 0 0 0 16px;
+  }
+  .drawer,
+  .pre-content,
+  .content,
+  .content-overlay {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .thumb.tleft {
+    float: left;
+
+    clear: left;
+
+    margin-right: 1.4em;
+  }
+  .thumb.tright {
+    float: right;
+
+    clear: right;
+
+    margin-left: 1.4em;
+  }
+  blockquote {
+    padding-right: 35px;
+    padding-left: 40px;
+  }
+  table {
+    display: table;
+    width: auto !important;
+  }
+  table caption {
+    display: table-caption;
+  }
+  table tbody {
+    display: table-row-group;
+  }
+}

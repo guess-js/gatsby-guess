@@ -1,0 +1,19 @@
+.content {
+  margin: 0 auto;
+  width: 47.1rem;
+  padding: 1.57rem;
+}
+
+.nav {
+  margin: 0 auto;
+  margin-bottom: 1.57rem;
+  padding: 1.57rem;
+}
+
+.navWrapper {
+  background: #663399;
+}
+.navWrapper a {
+  color: white;
+  font-size: 125%;
+}

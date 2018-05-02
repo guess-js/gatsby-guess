@@ -1,0 +1,42 @@
+{
+  "name": "gatsby-guess",
+  "version": "1.0.0",
+  "description": "Example site demoing using Gatsby with Guess.js",
+  "main": "n/a",
+  "scripts": {
+    "test": "n/a"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guess-js/gatsby-guess.git"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsbyjs",
+    "PWA",
+    "wikipedia",
+    "guess.js"
+  ],
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/guess-js/gatsby-guess/issues"
+  },
+  "homepage": "https://github.com/guess-js/gatsby-guess#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.1",
+    "gatsby": "next",
+    "gatsby-plugin-typography": "next",
+    "querystring": "^0.2.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-typography": "^0.16.13",
+    "slug": "^0.9.1",
+    "typography": "^0.16.16",
+    "typography-theme-wikipedia": "^0.15.11"
+  }
+}
