@@ -3794,8 +3794,8 @@ gatsby-plugin-manifest@next:
     sharp "^0.20.2"
 
 gatsby-plugin-offline@next:
-  version "2.0.0-alpha.7"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-2.0.0-alpha.7.tgz#c287decd870a71526d2056cc4b7d0e21f9610571"
+  version "2.0.0-alpha.8"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-2.0.0-alpha.8.tgz#e7de85f36d3732d7becfbb20b89a730bf1f903ae"
   dependencies:
     "@babel/runtime" "^7.0.0-beta.42"
     sw-precache "^5.0.0"
