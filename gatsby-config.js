@@ -61,5 +61,15 @@ module.exports = {
         trackingId: `UA-118755194-1`,
       },
     },
+    {
+      resolve: `gatsby-plugin-guess-js`,
+      options: {
+        GAViewID: `174800394`,
+        period: {
+          startDate: new Date("2018-02-01"),
+          endDate: new Date("2018-05-05"),
+        },
+      },
+    },
   ],
 }
