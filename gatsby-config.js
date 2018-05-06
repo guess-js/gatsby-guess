@@ -66,8 +66,8 @@ module.exports = {
       options: {
         GAViewID: `174800394`,
         period: {
-          startDate: new Date("2018-02-01"),
-          endDate: new Date("2018-05-05"),
+          startDate: new Date("2018-1-1"),
+          endDate: new Date("2018-5-5"),
         },
       },
     },
