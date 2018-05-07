@@ -1,6 +1,4 @@
 const { GuessPlugin } = require(`guess-webpack`)
-const { guess } = require(`guess-webpack/api`)
-console.log({ guess })
 
 let guessPlugin
 exports.onPreBootstrap = (_, pluginOptions) => {
@@ -36,5 +34,4 @@ exports.onCreateWebpackConfig = ({ actions, stage }, pluginOptions) => {
   actions.setWebpackConfig({
     plugins: [guessPlugin],
   })
-  // console.log({ guessPredictions: guess(`/`) })
 }
