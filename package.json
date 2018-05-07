@@ -6,6 +6,10 @@
   "bugs": {
     "url": "https://github.com/guess-js/gatsby-guess/issues"
   },
+  "resolutions": {
+    "guess-ga": "^0.0.2",
+    "guess-parser": "^0.0.2"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "bluebird": "^3.5.1",
