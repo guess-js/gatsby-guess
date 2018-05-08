@@ -2,9 +2,11 @@ require("./styles.css")
 
 const { guess } = require('guess-webpack/api');
 
+let colored = false;
+
+exports.onRouteUpdate = () => colored = false;
 exports.onInitialClientRender = () => window.addEventListener('keydown', highlight);
 
-let colored = false;
 const highlight = e => {
   if (e.keyCode !== 72) return;
   colored = !colored;
