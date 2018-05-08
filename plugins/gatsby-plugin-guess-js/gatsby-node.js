@@ -2,7 +2,6 @@ const { GuessPlugin } = require(`guess-webpack`)
 
 let guessPlugin
 exports.onPreBootstrap = (_, pluginOptions) => {
-  console.log({ pluginOptions })
   const { period, GAViewID } = pluginOptions
   guessPlugin = new GuessPlugin({
     // GA view ID.
@@ -30,7 +29,6 @@ exports.onPreBootstrap = (_, pluginOptions) => {
 }
 
 exports.onCreateWebpackConfig = ({ actions, stage }, pluginOptions) => {
-  console.log({ guessPlugin, stage })
   actions.setWebpackConfig({
     plugins: [guessPlugin],
   })

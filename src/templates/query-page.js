@@ -13,7 +13,7 @@ export default ({ data, pageContext }) => {
       <ul>
         {data.allWikipediaArticle.edges.map(({ node }) => {
           return (
-            <li>
+            <li key={node.fields.slug}>
               <Link to={node.fields.slug}>{node.title}</Link>
             </li>
           )

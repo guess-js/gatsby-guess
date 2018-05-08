@@ -13,6 +13,10 @@ module.exports = {
             limit: 10,
           },
           {
+            query: `Game of Thrones`,
+            limit: 10,
+          },
+          {
             query: `heritage`,
             limit: 10,
           },

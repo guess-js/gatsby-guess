@@ -57,6 +57,7 @@ exports.onPrefetchPathname = ({ pathname, pathPrefix }) => {
       chunks(pathPrefix).then(chunk => {
         // eslint-disable-next-line
         const page = ___loader.getPage(p)
+        if (!page) return
         let resources = []
         if (chunk.assetsByChunkName[page.componentChunkName]) {
           resources = resources.concat(
