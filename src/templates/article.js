@@ -17,7 +17,6 @@ const fetchArticle = name => {
       }
     ).then(res => {
       return res.text().then(html => {
-        html.replace(/\/\/en\.wikipedia\.org\/wiki\//g, "/wiki/")
         htmlCache[name] = html
         return htmlCache[name]
       })
