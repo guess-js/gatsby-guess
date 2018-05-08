@@ -9,7 +9,7 @@ const promiseCache = {}
 const htmlCache = {}
 
 const fetchArticle = name => {
-  if (typeof window === undefined) {
+  if (typeof window === "undefined") {
     return
   }
   if (!promiseCache[name]) {
