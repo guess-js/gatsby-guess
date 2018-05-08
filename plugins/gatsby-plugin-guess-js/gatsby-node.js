@@ -23,7 +23,7 @@ exports.onPreBootstrap = (_, pluginOptions) => {
     // period: period ? period : undefined,
     period: {
       startDate: new Date("2018-1-1"),
-      endDate: new Date("2018-5-5"),
+      endDate: new Date(),
     },
   })
 }

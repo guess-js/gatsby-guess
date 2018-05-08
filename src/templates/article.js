@@ -37,7 +37,7 @@ export default class ArticleTemplate extends React.Component {
     Object.keys(matches).forEach(match => fetchArticle(match.slice(6)))
     let toRender = ``
     const articleName = this.props.location.pathname.slice(6)
-    if (this.props.location.pathname === `_`) {
+    if (this.props.location.pathname === `/_/`) {
       return <div>hi</div>
     }
     if (this.props.data.wikipediaArticle) {
