@@ -13,7 +13,7 @@ module.exports = {
             limit: 10,
           },
           {
-            query: `Game of Thrones`,
+            query: `developers`,
             limit: 10,
           },
           {
@@ -26,6 +26,10 @@ module.exports = {
           },
           {
             query: `javascript`,
+            limit: 10,
+          },
+          {
+            query: `lighthouse`,
             limit: 10,
           },
           {
