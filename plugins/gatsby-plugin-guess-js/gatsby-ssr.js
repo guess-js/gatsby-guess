@@ -52,25 +52,27 @@ exports.onRenderBody = ({ setHeadComponents, pathname, pathPrefix }) => {
         return removeTrailingSlash(page.path) === match
       })
     })
+    let componentUrls = []
     matchedPages.forEach(p => {
       if (p && p.componentChunkName) {
         const fetchKey = `assetsByChunkName[${p.componentChunkName}]`
         let chunks = _.get(stats, fetchKey)
-        const components = chunks.map(c =>
-          React.createElement(`Link`, {
-            rel: `prefetch`,
-            as: c.slice(-2) === `js` ? "script" : undefined,
-            rel:
-              c.slice(-2) === `js`
-                ? `prefetch`
-                : `prefetch alternate stylesheet`,
-            key: c,
-            href: urlJoin(pathPrefix, c),
-          })
-        )
-        setHeadComponents(components)
+        componentUrls = [...componentUrls, ...chunks]
       }
     })
+    componentUrls = _.uniq(componentUrls)
+    const components = componentUrls.map(c =>
+      React.createElement(`Link`, {
+        rel: `prefetch`,
+        as: c.slice(-2) === `js` ? "script" : undefined,
+        rel:
+          c.slice(-2) === `js` ? `prefetch` : `prefetch alternate stylesheet`,
+        key: c,
+        href: urlJoin(pathPrefix, c),
+      })
+    )
+
+    setHeadComponents(components)
   }
 
   return true
