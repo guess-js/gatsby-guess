@@ -8,15 +8,15 @@ export default ({ children }) => {
     <div>
       <Helmet>
         <html lang="en" />
-        <title>Guess.js/Gatsby Wikipedia Demo</title>
+        <title>Guess.js/Gatsby Wikipedia</title>
         <meta
           name="description"
-          content="Guess.js/Gatsby demoing ML/Analytics driven prefetching"
+          content="Guess.js/Gatsby site demoing ML/Analytics driven prefetching"
         />
       </Helmet>
       <div className={styles.navWrapper}>
         <div className={styles.nav}>
-          <Link to="/">Guess.js/Gatsby Wikipedia Demo</Link>
+          <Link to="/">Guess.js/Gatsby Wikipedia</Link>
         </div>
       </div>
       <div className={styles.content}>{children}</div>
