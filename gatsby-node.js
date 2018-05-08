@@ -15,9 +15,15 @@ exports.onCreateNode = ({ node, actions }) => {
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
+  const articleTemplate = path.resolve(`./src/templates/article.js`)
+  const queryPageTemplate = path.resolve(`./src/templates/query-page.js`)
+  createPage({
+    path: `/_/`,
+    matchPath: `/wiki/*`,
+    component: articleTemplate,
+  })
+
   return new Promise((resolve, reject) => {
-    const articleTemplate = path.resolve(`./src/templates/article.js`)
-    const queryPageTemplate = path.resolve(`./src/templates/query-page.js`)
     resolve(
       graphql(
         `

@@ -17,7 +17,6 @@ exports.onRouteUpdate = ({ location }) => {
   initialPath = location.pathname
 }
 
-let webpackChunks
 let chunksPromise
 const chunks = pathPrefix => {
   if (!chunksPromise) {
@@ -56,6 +55,7 @@ exports.onPrefetchPathname = ({ pathname, pathPrefix }) => {
   if (Object.keys(shouldPrefetch).length > 0) {
     Object.keys(shouldPrefetch).forEach(p => {
       chunks(pathPrefix).then(chunk => {
+        // eslint-disable-next-line
         const page = ___loader.getPage(p)
         let resources = []
         if (chunk.assetsByChunkName[page.componentChunkName]) {
@@ -63,6 +63,7 @@ exports.onPrefetchPathname = ({ pathname, pathPrefix }) => {
             chunk.assetsByChunkName[page.componentChunkName]
           )
         }
+        // eslint-disable-next-line
         resources.push(`static/d/${___dataPaths[page.jsonName]}.json`)
         // TODO add support for pathPrefix
         resources.forEach(r => prefetch(`/${r}`))
