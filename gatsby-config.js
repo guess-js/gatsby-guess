@@ -50,6 +50,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    `gatsby-guess-js-link-highlight`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,
