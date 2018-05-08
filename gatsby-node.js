@@ -8,7 +8,7 @@ exports.onCreateNode = ({ node, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: `/${slug(node.wikipediaId)}/`,
+      value: `/wiki/${slug(node.wikipediaId)}/`,
     })
   }
 }

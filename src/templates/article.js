@@ -1,6 +1,8 @@
 import React from "react"
 import Layout from "../components/layout"
 import { navigateTo } from "gatsby"
+import fetch from "node-fetch"
+const { guess } = require("guess-webpack/api")
 
 import "./article.css"
 
@@ -8,6 +10,9 @@ const promiseCache = {}
 const htmlCache = {}
 
 const fetchArticle = name => {
+  if (typeof window === undefined) {
+    return
+  }
   if (!promiseCache[name]) {
     promiseCache[name] = fetch(
       `https://wikipedia-server.herokuapp.com/${name}`,
@@ -28,10 +33,15 @@ const fetchArticle = name => {
 
 export default class ArticleTemplate extends React.Component {
   render() {
+    const matches = guess(this.props.location.pathname)
+    Object.keys(matches).forEach(match => fetchArticle(match.slice(6)))
     let toRender = ``
     const articleName = this.props.location.pathname.slice(6)
+    if (this.props.location.pathname === `_`) {
+      return <div>hi</div>
+    }
     if (this.props.data.wikipediaArticle) {
-      toRender = this.props.data.wikipediaArticle
+      toRender = this.props.data.wikipediaArticle.rendered
     } else if (htmlCache[articleName]) {
       toRender = htmlCache[articleName]
     } else if (
@@ -58,8 +68,7 @@ export default class ArticleTemplate extends React.Component {
           onMouseMove={e => {
             const pathname = e.target.pathname
             if (pathname) {
-              fetchArticle(pathname.slice(6)).then(text =>
-              )
+              fetchArticle(pathname.slice(6))
             }
           }}
           dangerouslySetInnerHTML={{ __html: toRender }}
