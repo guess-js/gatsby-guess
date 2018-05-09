@@ -48,6 +48,7 @@
     "url": "git+https://github.com/guess-js/gatsby-guess.git"
   },
   "scripts": {
-    "test": "n/a"
+    "start": "gatsby develop",
+    "build": "gatsby build"
   }
 }
