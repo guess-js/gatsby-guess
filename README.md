@@ -7,4 +7,4 @@ https://guess-gatsby-wikipedia-demo.firebaseapp.com/
 
 * Clone
 * Run `npm install`
-* npm run
+* npm start
