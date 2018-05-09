@@ -15,7 +15,7 @@ const fetchArticle = name => {
   }
   if (!promiseCache[name]) {
     promiseCache[name] = fetch(
-      `https://wikipedia-server.herokuapp.com/${name}`,
+      `https://us-central1-guess-gatsby-wikipedia.cloudfunctions.net/fetchPage/${name}`,
       {
         method: "GET",
         mode: "cors",
