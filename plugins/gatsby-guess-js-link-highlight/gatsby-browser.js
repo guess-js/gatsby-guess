@@ -1,4 +1,4 @@
-require("./styles.css")
+require('./styles.css');
 
 const { guess } = require('guess-webpack/api');
 
@@ -39,6 +39,7 @@ const colorLinks = () => {
     }
     [].slice
       .call(document.querySelectorAll(`[href="${c}/"]`))
+      .concat([].slice.call(document.querySelectorAll(`[href="${c}"]`)))
       .forEach(n => n.classList.add(`prefetch-priority-${color}`));
   });
 };
@@ -46,5 +47,5 @@ const colorLinks = () => {
 const suffixes = [0, 1, 2, 3];
 const classBase = 'prefetch-priority-';
 const classes = suffixes.map(s => classBase + s);
-const uncolorLinks = () => 
+const uncolorLinks = () =>
   classes.forEach(c => [].slice.call(document.querySelectorAll(`.${c}`)).forEach(e => e.classList.remove(c)));
