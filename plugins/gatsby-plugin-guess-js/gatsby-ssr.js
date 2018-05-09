@@ -41,39 +41,41 @@ const readStats = () => {
 }
 
 exports.onRenderBody = ({ setHeadComponents, pathname, pathPrefix }) => {
-  const pagesData = readPageData()
-  const stats = readStats()
-  const path = removeTrailingSlash(pathname)
-  const predictions = guess(path)
-  if (!_.isEmpty(predictions)) {
-    const matchedPaths = Object.keys(predictions)
-    const matchedPages = matchedPaths.map(match => {
-      return _.find(pagesData.pages, page => {
-        return removeTrailingSlash(page.path) === match
+  if (process.env.NODE_ENV === `production`) {
+    const pagesData = readPageData()
+    const stats = readStats()
+    const path = removeTrailingSlash(pathname)
+    const predictions = guess(path)
+    if (!_.isEmpty(predictions)) {
+      const matchedPaths = Object.keys(predictions)
+      const matchedPages = matchedPaths.map(match => {
+        return _.find(pagesData.pages, page => {
+          return removeTrailingSlash(page.path) === match
+        })
       })
-    })
-    let componentUrls = []
-    matchedPages.forEach(p => {
-      if (p && p.componentChunkName) {
-        const fetchKey = `assetsByChunkName[${p.componentChunkName}]`
-        let chunks = _.get(stats, fetchKey)
-        componentUrls = [...componentUrls, ...chunks]
-      }
-    })
-    componentUrls = _.uniq(componentUrls)
-    const components = componentUrls.map(c =>
-      React.createElement(`Link`, {
-        rel: `prefetch`,
-        as: c.slice(-2) === `js` ? "script" : undefined,
-        rel:
-          c.slice(-2) === `js` ? `prefetch` : `prefetch alternate stylesheet`,
-        key: c,
-        href: urlJoin(pathPrefix, c),
+      let componentUrls = []
+      matchedPages.forEach(p => {
+        if (p && p.componentChunkName) {
+          const fetchKey = `assetsByChunkName[${p.componentChunkName}]`
+          let chunks = _.get(stats, fetchKey)
+          componentUrls = [...componentUrls, ...chunks]
+        }
       })
-    )
+      componentUrls = _.uniq(componentUrls)
+      const components = componentUrls.map(c =>
+        React.createElement(`Link`, {
+          rel: `prefetch`,
+          as: c.slice(-2) === `js` ? "script" : undefined,
+          rel:
+            c.slice(-2) === `js` ? `prefetch` : `prefetch alternate stylesheet`,
+          key: c,
+          href: urlJoin(pathPrefix, c),
+        })
+      )
 
-    setHeadComponents(components)
+      setHeadComponents(components)
+    }
+
+    return true
   }
-
-  return true
 }

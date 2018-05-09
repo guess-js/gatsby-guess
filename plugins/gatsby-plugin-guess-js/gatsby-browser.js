@@ -44,31 +44,33 @@ const prefetch = url => {
 }
 
 exports.onPrefetchPathname = ({ pathname, pathPrefix }) => {
-  const shouldPrefetch = guess(currentPathname(), [pathname])
+  if (process.env.NODE_ENV === `production`) {
+    const shouldPrefetch = guess(currentPathname(), [pathname])
 
-  // Don't prefetch from client for the initial path as we did that
-  // during SSR
-  if (notNavigated && initialPath === window.location.pathname) {
-    return
-  }
+    // Don't prefetch from client for the initial path as we did that
+    // during SSR
+    if (notNavigated && initialPath === window.location.pathname) {
+      return
+    }
 
-  if (Object.keys(shouldPrefetch).length > 0) {
-    Object.keys(shouldPrefetch).forEach(p => {
-      chunks(pathPrefix).then(chunk => {
-        // eslint-disable-next-line
-        const page = ___loader.getPage(p)
-        if (!page) return
-        let resources = []
-        if (chunk.assetsByChunkName[page.componentChunkName]) {
-          resources = resources.concat(
-            chunk.assetsByChunkName[page.componentChunkName]
-          )
-        }
-        // eslint-disable-next-line
-        resources.push(`static/d/${___dataPaths[page.jsonName]}.json`)
-        // TODO add support for pathPrefix
-        resources.forEach(r => prefetch(`/${r}`))
+    if (Object.keys(shouldPrefetch).length > 0) {
+      Object.keys(shouldPrefetch).forEach(p => {
+        chunks(pathPrefix).then(chunk => {
+          // eslint-disable-next-line
+          const page = ___loader.getPage(p)
+          if (!page) return
+          let resources = []
+          if (chunk.assetsByChunkName[page.componentChunkName]) {
+            resources = resources.concat(
+              chunk.assetsByChunkName[page.componentChunkName]
+            )
+          }
+          // eslint-disable-next-line
+          resources.push(`static/d/${___dataPaths[page.jsonName]}.json`)
+          // TODO add support for pathPrefix
+          resources.forEach(r => prefetch(`/${r}`))
+        })
       })
-    })
+    }
   }
 }
