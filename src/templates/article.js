@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { navigateTo } from "gatsby"
 import fetch from "node-fetch"
+import { guess } from "guess-webpack/api"
 
 import "./article.css"
 
@@ -33,7 +34,7 @@ const fetchArticle = name => {
 export default class ArticleTemplate extends React.Component {
   render() {
     // eslint-disable-next-line
-    const matches = __GUESS__.guess(this.props.location.pathname)
+    const matches = guess(this.props.location.pathname)
     Object.keys(matches).forEach(match => fetchArticle(match.slice(6)))
     let toRender = ``
     const articleName = this.props.location.pathname.slice(6)
