@@ -1,5 +1,3 @@
-const { guess } = require("guess-webpack/api")
-
 exports.disableCorePrefetching = () => true
 
 const currentPathname = () =>
@@ -43,8 +41,17 @@ const prefetch = url => {
   parentElement.appendChild(link)
 }
 
-exports.onPrefetchPathname = ({ pathname, pathPrefix }) => {
-  const shouldPrefetch = guess(currentPathname(), [pathname])
+exports.onPrefetchPathname = ({ pathname, pathPrefix }, pluginOptions) => {
+  const predictions = __GUESS__.guess(currentPathname(), [pathname])
+  const matchedPaths = Object.keys(predictions).filter(
+    match =>
+      // If the prediction is below the minimum threshold for prefetching
+      // we skip.
+      pluginOptions.minimumThreshold &&
+      pluginOptions.minimumThreshold > predictions[match]
+        ? false
+        : true
+  )
 
   // Don't prefetch from client for the initial path as we did that
   // during SSR
@@ -52,8 +59,8 @@ exports.onPrefetchPathname = ({ pathname, pathPrefix }) => {
     return
   }
 
-  if (Object.keys(shouldPrefetch).length > 0) {
-    Object.keys(shouldPrefetch).forEach(p => {
+  if (matchedPaths.length > 0) {
+    matchedPaths.forEach(p => {
       chunks(pathPrefix).then(chunk => {
         // eslint-disable-next-line
         const page = ___loader.getPage(p)

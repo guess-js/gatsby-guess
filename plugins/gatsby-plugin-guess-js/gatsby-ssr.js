@@ -40,13 +40,24 @@ const readStats = () => {
   }
 }
 
-exports.onRenderBody = ({ setHeadComponents, pathname, pathPrefix }) => {
+exports.onRenderBody = (
+  { setHeadComponents, pathname, pathPrefix },
+  pluginOptions
+) => {
   const pagesData = readPageData()
   const stats = readStats()
   const path = removeTrailingSlash(pathname)
   const predictions = guess(path)
   if (!_.isEmpty(predictions)) {
-    const matchedPaths = Object.keys(predictions)
+    const matchedPaths = Object.keys(predictions).filter(
+      match =>
+        // If the prediction is below the minimum threshold for prefetching
+        // we skip.
+        pluginOptions.minimumThreshold &&
+        pluginOptions.minimumThreshold > predictions[match]
+          ? false
+          : true
+    )
     const matchedPages = matchedPaths.map(match => {
       return _.find(pagesData.pages, page => {
         return removeTrailingSlash(page.path) === match
