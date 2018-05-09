@@ -1,3 +1,5 @@
+const { guess } = require(`guess-webpack/api`)
+
 exports.disableCorePrefetching = () => true
 
 const currentPathname = () =>
@@ -42,7 +44,7 @@ const prefetch = url => {
 }
 
 exports.onPrefetchPathname = ({ pathname, pathPrefix }, pluginOptions) => {
-  const predictions = __GUESS__.guess(currentPathname(), [pathname])
+  const predictions = guess(currentPathname(), [pathname])
   const matchedPaths = Object.keys(predictions).filter(
     match =>
       // If the prediction is below the minimum threshold for prefetching
