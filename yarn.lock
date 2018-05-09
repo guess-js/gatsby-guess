@@ -759,8 +759,8 @@
   resolved "https://registry.yarnpkg.com/@types/mkdirp/-/mkdirp-0.3.29.tgz#7f2ad7ec55f914482fc9b1ec4bb1ae6028d46066"
 
 "@types/node@*":
-  version "10.0.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.0.5.tgz#08c97d0e8ef6ea8ed1df119c839834ffb9e0321a"
+  version "10.0.6"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.0.6.tgz#c0bce8e539bf34c1b850c13ff46bead2fecc2e58"
 
 "@types/node@^7.0.11":
   version "7.0.64"
@@ -781,8 +781,8 @@
     "@types/react-router" "*"
 
 "@types/react-router@*":
-  version "4.0.24"
-  resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-4.0.24.tgz#e378e84186522216ae36cea12313965e190cd55f"
+  version "4.0.25"
+  resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-4.0.25.tgz#1e25490780b80e0d8f96bf649379cca8638c1e5a"
   dependencies:
     "@types/history" "*"
     "@types/react" "*"
@@ -4000,8 +4000,8 @@ gatsby-react-router-scroll@^1.0.12-4:
     warning "^3.0.0"
 
 gatsby@next:
-  version "2.0.0-alpha.30"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.0-alpha.30.tgz#5bf89c57343648669f37e4faa44a689b25ae16bf"
+  version "2.0.0-alpha.31"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.0-alpha.31.tgz#3e5699b4e1f4fa295c21c4e528348918f58bd14c"
   dependencies:
     "@babel/code-frame" "^7.0.0-beta.42"
     "@babel/core" "^7.0.0-beta.42"
