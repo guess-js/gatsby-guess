@@ -14,7 +14,7 @@ const fetchArticle = name => {
   }
   if (!promiseCache[name]) {
     promiseCache[name] = fetch(
-      `https://us-central1-guess-gatsby-wikipedia.cloudfunctions.net/helloWorld/${name}`,
+      `https://us-central1-guess-gatsby-wikipedia.cloudfunctions.net/fetchPage/${name}`,
       {
         method: "GET",
         mode: "cors",
