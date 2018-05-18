@@ -76,8 +76,8 @@ module.exports = {
         GAViewID: `174800394`,
         minimumThreshold: 0.03,
         period: {
-          startDate: new Date("2018-1-1"),
-          endDate: new Date("2018-5-5"),
+          startDate: new Date("2018-5-10"),
+          endDate: new Date("2018-5-17"),
         },
       },
     },
