@@ -18,9 +18,7 @@ const highlight = e => {
 };
 
 const colorLinks = () => {
-  const guesses = guess(
-    window.location.pathname.slice(-1) === `/` ? window.location.pathname.slice(0, -1) : window.location.pathname
-  );
+  const guesses = guess(window.location.pathname);
   [].slice.call(document.querySelectorAll(`a`)).forEach(n => n.classList.add('prefetch-priority-0'));
   let all = Object.keys(guesses).map(key => guesses[key]);
   all = all.filter((p, idx) => all.indexOf(p) === idx); //.sort((a, b) => a - b);
@@ -40,7 +38,7 @@ const colorLinks = () => {
       color = 2;
     }
     [].slice
-      .call(document.querySelectorAll(`[href="${c}/"]`))
+      .call(document.querySelectorAll(`[href="${c}"]`))
       .concat([].slice.call(document.querySelectorAll(`[href="${c}"]`)))
       .forEach(n => n.classList.add(`prefetch-priority-${color}`));
   });

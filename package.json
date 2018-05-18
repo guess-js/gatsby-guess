@@ -7,8 +7,8 @@
     "url": "https://github.com/guess-js/gatsby-guess/issues"
   },
   "resolutions": {
-    "guess-ga": "^0.0.2",
-    "guess-parser": "^0.0.2"
+    "guess-ga": "^0.1.0",
+    "guess-parser": "^0.1.0"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -21,7 +21,7 @@
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-typography": "next",
     "gatsby-source-wikipedia": "^1.0.0-alpha.2",
-    "guess-webpack": "^0.0.3",
+    "guess-webpack": "^0.1.0",
     "node-fetch": "^2.1.2",
     "querystring": "^0.2.0",
     "react": "^16.3.2",
