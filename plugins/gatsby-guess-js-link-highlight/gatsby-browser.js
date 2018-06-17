@@ -4,7 +4,7 @@ const { guess } = require('guess-webpack/api');
 
 let colored = false;
 
-exports.onRouteUpdate = () => colored = false;
+exports.onRouteUpdate = () => (colored = false);
 exports.onInitialClientRender = () => window.addEventListener('keydown', highlight);
 
 const highlight = e => {
@@ -18,9 +18,9 @@ const highlight = e => {
 };
 
 const colorLinks = () => {
-  const guesses = guess(
-    window.location.pathname.slice(-1) === `/` ? window.location.pathname.slice(0, -1) : window.location.pathname
-  );
+  const guesses = guess({
+    path: window.location.pathname
+  });
   [].slice.call(document.querySelectorAll(`a`)).forEach(n => n.classList.add('prefetch-priority-0'));
   let all = Object.keys(guesses).map(key => guesses[key]);
   all = all.filter((p, idx) => all.indexOf(p) === idx); //.sort((a, b) => a - b);
