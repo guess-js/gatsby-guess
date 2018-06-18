@@ -5,9 +5,6 @@ const React = require(`react`);
 
 const { guess } = require(`guess-webpack/api`);
 
-// Google Analytics removes trailing slashes from pathnames
-const removeTrailingSlash = pathname => (pathname.slice(-1) === `/` ? pathname.slice(0, -1) : pathname);
-
 function urlJoin(...parts) {
   return parts.reduce((r, next) => {
     const segment = next == null ? `` : String(next).replace(/^\/+/, ``);
