@@ -48,7 +48,7 @@ exports.onPrefetchPathname = ({ pathPrefix }, pluginOptions) => {
 
     if (matchedPaths.length > 0) {
       matchedPaths.forEach(p => {
-        chunks(pathPrefix).then(chunk => {
+        chunks(p).then(chunk => {
           // eslint-disable-next-line
           const page = ___loader.getPage(p);
           if (!page) return;
