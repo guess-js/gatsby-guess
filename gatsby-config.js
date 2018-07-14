@@ -75,9 +75,10 @@ module.exports = {
       options: {
         GAViewID: `174800394`,
         minimumThreshold: 0.03,
+        jwt: require('./key.json'),
         period: {
-          startDate: new Date("2018-1-1"),
-          endDate: new Date("2018-5-5"),
+          startDate: new Date("2018-5-5"),
+          endDate: new Date("2018-6-10"),
         },
       },
     },
