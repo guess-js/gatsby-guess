@@ -7,27 +7,26 @@
     "url": "https://github.com/guess-js/gatsby-guess/issues"
   },
   "resolutions": {
-    "guess-ga": "^0.0.2",
-    "guess-parser": "^0.0.2"
+    "guess-ga": "^0.1.4",
+    "guess-parser": "^0.1.4"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "bluebird": "^3.5.1",
     "gatsby": "next",
     "gatsby-plugin-google-analytics": "next",
+    "gatsby-plugin-guess-js": "next",
     "gatsby-plugin-manifest": "next",
     "gatsby-plugin-offline": "next",
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-typography": "next",
-    "gatsby-plugin-guess-js": "next",
     "gatsby-source-wikipedia": "next",
     "node-fetch": "^2.1.2",
     "querystring": "^0.2.0",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
-    "guess-webpack": "^0.1.0",
     "slug": "^0.9.1",
     "typography": "^0.16.16",
     "typography-theme-wikipedia": "^0.15.11"
@@ -51,6 +50,11 @@
   },
   "scripts": {
     "start": "gatsby develop",
-    "build": "gatsby build"
+    "build": "gatsby build",
+    "format": "prettier-eslint --write \"src/**/*.js\""
+  },
+  "devDependencies": {
+    "prettier": "^1.14.2",
+    "prettier-eslint-cli": "^4.7.1"
   }
 }
