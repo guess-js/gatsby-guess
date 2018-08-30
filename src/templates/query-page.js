@@ -6,9 +6,7 @@ export default ({ data, pageContext }) => {
   return (
     <Layout>
       <h1>
-        Query: "{pageContext.context.query}" ({
-          data.allWikipediaArticle.totalCount
-        })
+        Query: "{pageContext.query}" ({data.allWikipediaArticle.totalCount})
       </h1>
       <ul>
         {data.allWikipediaArticle.edges.map(({ node }) => {
