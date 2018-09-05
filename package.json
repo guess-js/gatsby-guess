@@ -7,8 +7,8 @@
     "url": "https://github.com/guess-js/gatsby-guess/issues"
   },
   "resolutions": {
-    "guess-ga": "^0.1.4",
-    "guess-parser": "^0.1.4"
+    "guess-ga": "^0.1.5",
+    "guess-parser": "^0.1.5"
   },
   "dependencies": {
     "axios": "^0.18.0",
